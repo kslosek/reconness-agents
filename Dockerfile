@@ -27,7 +27,7 @@ EXPOSE 5000
 
 COPY --from=build /dist ./
 
-# -------- Agents dependencies -------- 
+# -------- Agents dependencies --------
 
 # To allow run subfinder inside the docker
 RUN apt-get update && apt-get install -y git wget unzip
@@ -39,8 +39,8 @@ RUN echo 'export PATH=$GOPATH/bin:$GOROOT/bin:$PATH' >> ~/.profile
 RUN . ~/.profile && go get -u github.com/projectdiscovery/subfinder/cmd/subfinder
 
 # To allow run amass inside the docker
-RUN cd /tmp/ ; wget https://github.com/OWASP/Amass/releases/download/v3.4.2/amass_v3.4.2_linux_amd64.zip ; unzip amass_v3.4.2_linux_amd64.zip
-RUN mv /tmp/amass_v3.4.2_linux_amd64/amass /bin
+RUN cd /tmp/ ; wget https://github.com/OWASP/Amass/releases/download/v3.5.5/amass_v3.5.5_linux_amd64.zip ; unzip amass_v3.5.5_linux_amd64.zip
+RUN mv /tmp/amass_v3.5.5_linux_amd64/amass /bin
 
 # To allow run gobuster inside the docker
 RUN . ~/.profile && go get github.com/OJ/gobuster
@@ -76,6 +76,6 @@ RUN apt-get update && apt-get install -y nmap
 RUN git clone https://github.com/m4ll0k/takeover.git
 RUN cd takeover && python3 setup.py install
 
-# -------- End Agents dependencies -------- 
+# -------- End Agents dependencies --------
 
 ENTRYPOINT ["dotnet", "ReconNess.Web.dll"]

@@ -13,12 +13,12 @@ Check [Script file](https://github.com/reconness/reconness-agents/blob/master/Am
 ## Amass Dockerfile Entry
 
 ```
-# -------- Agents dependencies -------- 
+# -------- Agents dependencies --------
 
 # To allow run amass inside the docker
 RUN apt-get update && apt-get install -y wget && apt-get install unzip -y
-RUN cd /tmp/ ; wget https://github.com/OWASP/Amass/releases/download/v3.4.2/amass_v3.4.2_linux_amd64.zip ; unzip amass_v3.4.2_linux_amd64.zip
-RUN mv /tmp/amass_v3.4.2_linux_amd64/amass /bin
+RUN cd /tmp/ ; wget https://github.com/OWASP/Amass/releases/download/v3.5.5/amass_v3.5.5_linux_amd64.zip ; unzip amass_v3.5.5_linux_amd64.zip
+RUN mv /tmp/amass_v3.5.5_linux_amd64/amass /bin
 
-# -------- End Agents dependencies -------- 
+# -------- End Agents dependencies --------
 ```
